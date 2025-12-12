@@ -1,14 +1,17 @@
 {
-  "name": "backend",
+  "name": "sweet-shop-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage --verbose --detectOpenHandles",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch"
   },
-  "keywords": [],
+  "keywords": ["sweet-shop", "tdd"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Sweet Shop Management System Backend - TDD",
   "type": "module",
   "dependencies": {
     "bcryptjs": "^3.0.3",
