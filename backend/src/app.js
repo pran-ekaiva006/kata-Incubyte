@@ -5,8 +5,18 @@ import sweetRoutes from './routes/sweetRoutes.js';
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// CORS Configuration - MUST be before other middleware
+
+const corsOptions = {
+  origin: [
+    'http://localhost:3000', // frontend
+    'http://localhost:5000', // backend (if you test APIs directly)
+  ],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
+// Other Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
