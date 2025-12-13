@@ -9,6 +9,9 @@ const categoryIcons = {
   Dessert: '🍰',
   Gum: '🍬',
   Beverage: '🥤',
+  'Hard Candy': '🍭',
+  Gummy: '🧸',
+  Lollipop: '🍭',
   Other: '🍭'
 };
 
@@ -18,7 +21,7 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
   const [showPurchase, setShowPurchase] = useState(false);
   const [showRestock, setShowRestock] = useState(false);
   
-  const { isAuthenticated } = useAuth();  // This is a boolean, not a function
+  const { isAuthenticated } = useAuth();
 
   const handlePurchase = () => {
     if (purchaseQuantity > 0 && purchaseQuantity <= sweet.quantity) {
@@ -53,19 +56,28 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
         <div className="sweet-details">
           <div className="price">
             <span className="price-label">Price:</span>
-            <span className="price-value">${sweet.price.toFixed(2)}</span>
+            <span className="price-value">
+              {new Intl.NumberFormat(
+                navigator.language || 'en-US',
+                { style: 'currency', currency: (navigator.language && navigator.language.startsWith('en-IN')) ? 'INR' : 'USD' }
+              ).format(sweet.price)}
+            </span>
           </div>
           <div className="quantity">
             <span className="quantity-label">Stock:</span>
-            <span className={`quantity-value ${sweet.quantity === 0 ? 'out-of-stock' : sweet.quantity < 10 ? 'low-stock' : ''}`}>
-              {sweet.quantity}
-            </span>
+            {sweet.quantity === 0 ? (
+              <span className="stock-indicator out-of-stock">Out of Stock</span>
+            ) : sweet.quantity < 10 ? (
+              <span className="stock-indicator low-stock">Low Stock: {sweet.quantity}</span>
+            ) : (
+              <span className="stock-indicator in-stock">In Stock: {sweet.quantity}</span>
+            )}
           </div>
         </div>
       </div>
 
       <div className="sweet-card-actions">
-        {isAuthenticated && !onEdit && (  // Changed from isAuthenticated() to isAuthenticated
+        {isAuthenticated && !onEdit && (
           <>
             {!showPurchase ? (
               <button

@@ -13,7 +13,31 @@ const SweetForm = ({ sweet, onClose, onSuccess }) => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const categories = ['Chocolate', 'Candy', 'Gummy', 'Hard Candy', 'Lollipop', 'Other'];
+  const categories = [
+    'Candy',
+    'Chocolate',
+    'Cookie',
+    'Dessert',
+    'Gum',
+    'Beverage',
+    'Hard Candy',
+    'Gummy',
+    'Lollipop',
+    'Other'
+  ];
+
+  const categoryIcons = {
+    Candy: '🍬',
+    Chocolate: '🍫',
+    Cookie: '🍪',
+    Dessert: '🍰',
+    Gum: '🍭',
+    Beverage: '🥤',
+    'Hard Candy': '🍬',
+    Gummy: '🍬',
+    Lollipop: '🍭',
+    Other: '🍭'
+  };
 
   useEffect(() => {
     if (sweet) {
@@ -88,9 +112,10 @@ const SweetForm = ({ sweet, onClose, onSuccess }) => {
               onChange={handleChange}
               required
             >
+              <option value="">All Categories</option>
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
-                  {cat}
+                  {categoryIcons[cat] || ''} {cat}
                 </option>
               ))}
             </select>

@@ -99,10 +99,6 @@ const SweetList = () => {
     }
   };
 
-  if (loading && sweets.length === 0) {
-    return <div className="loading">Loading sweets...</div>;
-  }
-
   return (
     <div className="sweet-list-container">
       <div className="sweet-list-header">
@@ -118,7 +114,19 @@ const SweetList = () => {
 
       <SweetSearch onSearch={handleSearch} onReset={handleReset} />
 
-      {sweets.length === 0 ? (
+      {loading && (
+        <div className="loading">
+          <span className="spinner" /> Loading sweets...
+        </div>
+      )}
+
+      {!loading && (
+        <div className="results-count">
+          Showing {sweets.length} result{sweets.length !== 1 ? 's' : ''}
+        </div>
+      )}
+
+      {sweets.length === 0 && !loading ? (
         <div className="no-sweets">
           <p>No sweets found. {isAdmin() && 'Add some sweets to get started!'}</p>
         </div>
@@ -134,12 +142,6 @@ const SweetList = () => {
               onRestock={isAdmin() ? handleRestock : null}
             />
           ))}
-        </div>
-      )}
-
-      {!loading && (
-        <div className="results-count">
-          Showing {sweets.length} result{sweets.length !== 1 ? 's' : ''}
         </div>
       )}
 

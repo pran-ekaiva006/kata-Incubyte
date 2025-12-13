@@ -9,7 +9,18 @@ const SweetSearch = ({ onSearch, onReset }) => {
     maxPrice: '',
   });
 
-  const categories = ['Chocolate', 'Candy', 'Gummy', 'Hard Candy', 'Lollipop', 'Other'];
+  const categories = [
+    'Candy',
+    'Chocolate',
+    'Cookie',
+    'Dessert',
+    'Gum',
+    'Beverage',
+    'Hard Candy',
+    'Gummy',
+    'Lollipop',
+    'Other'
+  ];
 
   const handleChange = (e) => {
     setSearchParams({

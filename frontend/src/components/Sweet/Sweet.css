@@ -405,6 +405,44 @@ body {
   color: #bbb;
 }
 
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #bbb;
+  border-top: 3px solid #181818;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Stock Indicator */
+.stock-indicator {
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.98rem;
+  margin-left: 6px;
+  display: inline-block;
+}
+.stock-indicator.in-stock {
+  background: #e6fbe6;
+  color: #1a7f1a;
+}
+.stock-indicator.low-stock {
+  background: #fff7e6;
+  color: #b26a00;
+}
+.stock-indicator.out-of-stock {
+  background: #ffeaea;
+  color: #c0392b;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .sweet-grid {
