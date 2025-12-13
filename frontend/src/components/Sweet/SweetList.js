@@ -101,18 +101,19 @@ const SweetList = () => {
 
   return (
     <div className="sweet-list-container">
-      <div className="sweet-list-header">
-        <h1>🍬 Sweet Shop</h1>
-        {isAdmin() && (
-          <button className="btn-add" onClick={handleAddSweet}>
-            + Add New Sweet
-          </button>
-        )}
+      <div className="sweet-list-header-container">
+        <div className="sweet-list-header">
+          <h1>🍬 Sweet Shop</h1>
+          {isAdmin() && (
+            <button className="btn-add" onClick={handleAddSweet}>
+              + Add New Sweet
+            </button>
+          )}
+        </div>
+        <SweetSearch onSearch={handleSearch} onReset={handleReset} />
       </div>
 
       {error && <div className="error-message">{error}</div>}
-
-      <SweetSearch onSearch={handleSearch} onReset={handleReset} />
 
       {loading && (
         <div className="loading">

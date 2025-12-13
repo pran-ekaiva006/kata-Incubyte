@@ -12,12 +12,25 @@ body {
   padding: 32px 16px 48px 16px;
 }
 
+/* New container for header and search */
+.sweet-list-header-container {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(5,171,151,0.08);
+  padding: 32px 32px 24px 32px;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 /* Header */
 .sweet-list-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  gap: 24px;
+  margin-bottom: 0;
 }
 
 .sweet-list-header h1 {
@@ -56,14 +69,16 @@ body {
 
 .search-form {
   display: flex;
-  flex-direction: column;
-  gap: 18px;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
 }
 
 .search-row {
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
+  flex: 1;
+  align-items: center;
 }
 
 .search-input,
@@ -86,11 +101,16 @@ body {
 
 .btn-search,
 .btn-reset {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 0;
   padding: 12px 32px;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
@@ -448,14 +468,24 @@ body {
   .sweet-grid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
+  .sweet-list-header-container {
+    padding: 16px 8px;
+    gap: 16px;
+  }
   .sweet-list-header {
     flex-direction: column;
-    gap: 18px;
     align-items: flex-start;
+    gap: 12px;
+  }
+  .search-form {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
   }
   .search-row {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    align-items: stretch;
   }
 }
 
