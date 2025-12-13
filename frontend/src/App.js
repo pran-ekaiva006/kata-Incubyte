@@ -6,6 +6,7 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import SweetList from './components/Sweet/SweetList';
 import AdminDashboard from './components/Admin/AdminDashboard'; // Add this import
+
 import './App.css';
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
               <Route path="/" element={<SweetList />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/admin" element={<AdminDashboard />} /> {/* Add this line */}
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/shop" element={<SweetList />} />
             </Routes>
           </div>
         </div>
