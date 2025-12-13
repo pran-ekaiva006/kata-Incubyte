@@ -332,5 +332,85 @@
   color: #000;
 }
 
-/* Modal, Loading, Responsive, etc. */
-/* ...keep as is, but ensure all colors are grayscale... */
+/* Hamburger styles */
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  z-index: 120;
+}
+
+.hamburger-bar {
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+  display: block;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .navbar-container {
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 6px;
+    gap: 0;
+    position: relative;
+  }
+
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 56px;
+    right: 0;
+    left: 0;
+    background: #181818;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    width: 100vw;
+    padding: 0 0 12px 0;
+    display: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.13);
+    z-index: 110;
+  }
+
+  .navbar-menu.open {
+    display: flex;
+  }
+
+  .navbar-link,
+  .navbar-btn,
+  .navbar-user {
+    width: 100%;
+    font-size: 1rem;
+    padding: 14px 18px;
+    text-align: left;
+    border-radius: 0;
+    border-bottom: 1px solid #222;
+    background: none;
+    color: #fff;
+  }
+
+  .navbar-link:last-child,
+  .navbar-btn:last-child,
+  .navbar-user:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-logo {
+    font-size: 1.1rem;
+    padding-bottom: 0;
+  }
+}
