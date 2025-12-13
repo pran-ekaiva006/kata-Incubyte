@@ -137,6 +137,12 @@ const SweetList = () => {
         </div>
       )}
 
+      {!loading && (
+        <div className="results-count">
+          Showing {sweets.length} result{sweets.length !== 1 ? 's' : ''}
+        </div>
+      )}
+
       {showForm && (
         <SweetForm
           sweet={editingSweet}

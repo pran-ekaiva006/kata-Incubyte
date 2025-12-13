@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import './Sweet.css';
 
+const categoryIcons = {
+  Candy: '🍬',
+  Chocolate: '🍫',
+  Cookie: '🍪',
+  Dessert: '🍰',
+  Gum: '🍬',
+  Beverage: '🥤',
+  Other: '🍭'
+};
+
 const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
   const [restockQuantity, setRestockQuantity] = useState(10);
@@ -30,8 +40,8 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
     <div className="sweet-card">
       <div className="sweet-card-header">
         <h3>{sweet.name}</h3>
-        <span className={`category-badge ${sweet.category.toLowerCase()}`}>
-          {sweet.category}
+        <span className="category-badge">
+          {categoryIcons[sweet.category] || ''} {sweet.category}
         </span>
       </div>
       
