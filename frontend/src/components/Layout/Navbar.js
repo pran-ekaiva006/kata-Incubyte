@@ -43,6 +43,11 @@ const Navbar = () => {
                 Welcome, {user?.name}
                 {isAdmin() && <span className="admin-badge">Admin</span>}
               </span>
+              {isAdmin() && (
+                <Link to="/admin" className="navbar-link" onClick={handleNavClick}>
+                  Admin Dashboard
+                </Link>
+              )}
               <button onClick={handleLogout} className="navbar-btn">
                 Logout
               </button>
