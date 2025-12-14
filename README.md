@@ -1,3 +1,29 @@
+# Sweet Shop Application
+
+## Demo Screenshots
+
+### Admin View
+The following screenshots show the admin dashboard and inventory management features:
+
+**Admin Dashboard**
+![Admin Dashboard](frontend/screenshots/admin-dashboard-1.png)
+
+**Inventory Overview**
+![Inventory Overview](frontend/screenshots/admin-dashboard-2.png)
+
+**Admin Credentials:**
+- Email: `new@gmail.com`
+- Password: `123456789`
+
+### Buyer View
+The following screenshot shows the buyer's view of the Sweet Shop:
+
+![Buyer View](frontend/screenshots/buyer-view.png)
+
+---
+Replace the image paths above with the actual paths if you save the screenshots in a different location.
+
+---
 # 🍬 Sweet Shop Management System
 
 A full-stack web application for managing a sweet shop, built with **Test-Driven Development (TDD)** methodology. This project demonstrates modern development practices including RESTful API design, authentication, authorization, and comprehensive testing.
