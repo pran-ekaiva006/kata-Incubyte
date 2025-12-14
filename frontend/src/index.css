@@ -3,7 +3,7 @@ body {
   font-family: 'Josefin Sans', 'Lato', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--sweet-pink);
+  background: var(--sweet-pink, #FEDAFF); 
 }
 
 code {
@@ -20,6 +20,10 @@ code {
   --sweet-pink: #FEDAFF;
   --sweet-teal: #05AB97;
   --sweet-mint: #D6FEF9;
+}
+
+body {
+  background: var(--sweet-pink);
 }
 
 .btn-primary {

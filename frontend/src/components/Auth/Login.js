@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
@@ -11,8 +11,19 @@ const Login = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { login } = useAuth();
+  const { login, isAuthenticated, isAdmin } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // If already logged in, redirect to /shop or /admin
+    if (isAuthenticated) {
+      if (isAdmin && isAdmin()) {
+        navigate('/admin', { replace: true });
+      } else {
+        navigate('/shop', { replace: true });
+      }
+    }
+  }, [isAuthenticated, isAdmin, navigate]);
 
   const handleChange = (e) => {
     setFormData({
@@ -28,7 +39,7 @@ const Login = () => {
 
     try {
       await login(formData);
-      navigate('/');
+      // Navigation will be handled by useEffect above
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');
     } finally {

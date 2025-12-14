@@ -36,8 +36,12 @@ const Register = () => {
 
     try {
       const { name, email, password } = formData;
-      await register({ name, email, password });
-      navigate('/');
+      const data = await register({ name, email, password });
+      if (data.user && data.user.role === 'admin') {
+        navigate('/admin', { replace: true });
+      } else {
+        navigate('/shop', { replace: true });
+      }
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed. Please try again.');
     } finally {

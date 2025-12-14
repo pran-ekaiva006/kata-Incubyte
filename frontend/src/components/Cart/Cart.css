@@ -1,0 +1,141 @@
+.cart-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #181818;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid #f0f0f0;
+  padding: 18px 0;
+  gap: 18px;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.cart-item-price {
+  color: #05AB97;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cart-item-quantity input {
+  width: 60px;
+  padding: 6px 10px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.cart-remove-btn {
+  background: #e5e7eb;
+  color: #c0392b;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cart-remove-btn:hover {
+  background: #ffeaea;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.cart-btn {
+  background: #181818;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cart-btn:hover {
+  background: #05AB97;
+}
+
+.cart-btn.clear {
+  background: #e5e7eb;
+  color: #222;
+}
+
+.cart-btn.clear:hover {
+  background: #bbb;
+  color: #181818;
+}
+
+.cart-total {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #181818;
+  text-align: right;
+  margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .cart-container {
+    padding: 16px 4px;
+  }
+  .cart-title {
+    font-size: 1.3rem;
+  }
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 0;
+  }
+  .cart-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .cart-total {
+    font-size: 1.1rem;
+    margin-top: 14px;
+  }
+}

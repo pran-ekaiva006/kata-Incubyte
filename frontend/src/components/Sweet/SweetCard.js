@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import { useCart } from '../../context/CartContext';
 import './Sweet.css';
 
 const categoryIcons = {
@@ -22,12 +23,14 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
   const [showRestock, setShowRestock] = useState(false);
   
   const { isAuthenticated } = useAuth();
+  const { addToCart } = useCart();
 
   const handlePurchase = () => {
     if (purchaseQuantity > 0 && purchaseQuantity <= sweet.quantity) {
-      onPurchase(sweet._id, purchaseQuantity);
+      addToCart(sweet, purchaseQuantity);  // Add to cart
       setShowPurchase(false);
       setPurchaseQuantity(1);
+      alert(`Added ${purchaseQuantity} ${sweet.name}(s) to cart!`);  // Optional feedback
     }
   };
 
@@ -41,6 +44,7 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
 
   return (
     <div className="sweet-card">
+
       <div className="sweet-card-header">
         <h3>{sweet.name}</h3>
         <span className="category-badge">
@@ -52,7 +56,7 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
         <p className="sweet-description">
           {sweet.description || 'Delicious sweet treat!'}
         </p>
-        
+
         <div className="sweet-details">
           <div className="price">
             <span className="price-label">Price:</span>
@@ -77,6 +81,7 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
       </div>
 
       <div className="sweet-card-actions">
+        {/* Purchase buttons */}
         {isAuthenticated && !onEdit && (
           <>
             {!showPurchase ? (
@@ -96,30 +101,21 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
                   value={purchaseQuantity}
                   onChange={(e) => setPurchaseQuantity(parseInt(e.target.value))}
                 />
-                <button onClick={handlePurchase} className="btn-confirm">
-                  ✓
-                </button>
-                <button onClick={() => setShowPurchase(false)} className="btn-cancel">
-                  ✗
-                </button>
+                <button onClick={handlePurchase} className="btn-confirm">✓</button>
+                <button onClick={() => setShowPurchase(false)} className="btn-cancel">✗</button>
               </div>
             )}
           </>
         )}
 
+        {/* Admin buttons */}
         {onEdit && (
           <>
-            <button className="btn-edit" onClick={() => onEdit(sweet)}>
-              ✏️ Edit
-            </button>
-            <button className="btn-delete" onClick={() => onDelete(sweet._id)}>
-              🗑️ Delete
-            </button>
-            
+            <button className="btn-edit" onClick={() => onEdit(sweet)}>✏️ Edit</button>
+            <button className="btn-delete" onClick={() => onDelete(sweet._id)}>🗑️ Delete</button>
+
             {!showRestock ? (
-              <button className="btn-restock" onClick={() => setShowRestock(true)}>
-                📦 Restock
-              </button>
+              <button className="btn-restock" onClick={() => setShowRestock(true)}>📦 Restock</button>
             ) : (
               <div className="restock-form">
                 <input
@@ -128,12 +124,8 @@ const SweetCard = ({ sweet, onEdit, onDelete, onPurchase, onRestock }) => {
                   value={restockQuantity}
                   onChange={(e) => setRestockQuantity(parseInt(e.target.value))}
                 />
-                <button onClick={handleRestock} className="btn-confirm">
-                  ✓
-                </button>
-                <button onClick={() => setShowRestock(false)} className="btn-cancel">
-                  ✗
-                </button>
+                <button onClick={handleRestock} className="btn-confirm">✓</button>
+                <button onClick={() => setShowRestock(false)} className="btn-cancel">✗</button>
               </div>
             )}
           </>

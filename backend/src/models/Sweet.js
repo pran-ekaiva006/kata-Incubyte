@@ -28,9 +28,6 @@ const sweetSchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true
-  },
-  imageUrl: {
-    type: String
   }
 }, {
   timestamps: true
