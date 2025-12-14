@@ -30,4 +30,9 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'Server is running' });
 });
 
+// Add this for root path
+app.get('/', (req, res) => {
+  res.send('Sweet Shop Backend is running!');
+});
+
 export default app;
