@@ -222,21 +222,6 @@ curl -X POST http://localhost:5000/api/sweets/SWEET_ID/purchase \
 
 **Note:** To create an admin user, manually set `role: 'admin'` in the database or modify the registration endpoint for testing.
 
-## 🧑‍💻 Development Workflow (TDD)
-
-This project was built following **Test-Driven Development** principles:
-
-1. **RED** - Write failing tests first
-2. **GREEN** - Implement minimum code to pass tests
-3. **REFACTOR** - Improve code while keeping tests passing
-
-### Commit History
-
-Each commit follows the TDD cycle:
-- Tests are written before implementation
-- Clear commit messages describing the TDD phase
-- AI co-authorship credited where applicable
-
 ## 🤖 My AI Usage
 
 As required by the assessment guidelines, here is a detailed account of AI tool usage in this project:
@@ -326,26 +311,8 @@ Using AI tools in this project was immensely beneficial, but required discipline
 
 The key was maintaining a balance: leveraging AI for productivity while ensuring deep understanding of the codebase.
 
-## 📊 Project Statistics
 
-- **Total Lines of Code:** ~2,500+ lines
-- **Test Files:** 4
-- **Total Tests:** 49
-- **Test Coverage:** 86.66%
-- **API Endpoints:** 9
-- **Models:** 2 (User, Sweet)
-- **Commits:** 10+ with clear TDD progression
 
-## 🔄 Git Workflow
-
-```bash
-# All commits follow this pattern:
-git commit -m "type: description
-
-Detailed explanation of changes
-Following TDD RED-GREEN-REFACTOR cycle
-
-Co-authored-by: GitHub Copilot <AI@users.noreply.github.com>"
 ```
 
 ## 📝 Future Enhancements
@@ -371,17 +338,16 @@ This project is for educational/assessment purposes.
 
 **Pranjal Kumar Verma**
 - GitHub: [@pran-ekaiva006](https://github.com/pran-ekaiva006)
-- Email: your-email@example.com
+- Email: pranjalverma975@gmail.com
 
 ## 🙏 Acknowledgments
 
-- **Incubyte** for the TDD Kata challenge
+- **Incubyte** for the challenge
 - **GitHub Copilot** for AI-assisted development
 - **MongoDB** for database documentation
 - **Express.js** community for excellent resources
 
 ---
 
-**Built with 💙 following TDD principles**
 
 **Assessment Date:** December 2025
