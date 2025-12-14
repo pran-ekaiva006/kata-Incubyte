@@ -1,5 +1,7 @@
 # Sweet Shop Application
 
+[Live Demo](https://kata-incubyte-frontend.onrender.com/login) &nbsp;|&nbsp; [GitHub Repository](https://github.com/pran-ekaiva006/kata-Incubyte)
+
 ## Demo Screenshots
 
 ### Admin View
