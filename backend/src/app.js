@@ -9,8 +9,9 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    'http://localhost:3000', // frontend
+    'http://localhost:3000', // frontend (local dev)
     'http://localhost:5000', // backend (if you test APIs directly)
+    'https://kata-incubyte-frontend.onrender.com', // deployed frontend
   ],
   credentials: true,
 };
